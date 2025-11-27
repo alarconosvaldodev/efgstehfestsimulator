@@ -1,0 +1,13 @@
+function f=sol_PC_no_newtoniano(s,S,Cd,Red,v,beta)
+
+a=sqrt(s);
+b=a*beta;
+c=beta*a*Red^(1/beta);
+f = 1/s*(besseli(v,b)*besselk(beta,c)+besselk(v,b)*besseli(beta,c)+...
+    s*a*(besselk(beta,b)*besseli(beta,c)-besseli(beta,b)*besselk(beta,c)))/...
+    (a*(besselk(beta,b)*besseli(beta,c)-besseli(beta,b)*besselk(beta,c))+...
+    s*Cd*((besseli(v,b)*besselk(beta,c)+besselk(v,b)*besseli(beta,c))+...
+    S*a*(besselk(beta,b)*besseli(beta,c)-besseli(beta,b)*besselk(beta,c))));
+end
+
+
